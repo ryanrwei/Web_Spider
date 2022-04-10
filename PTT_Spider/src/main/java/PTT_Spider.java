@@ -16,7 +16,7 @@ public class PTT_Spider {
             System.out.println(BoardName);
             String BoardsLink = Boards.attr("href");
 
-            Document doc2 = Jsoup.connect("https://www.ptt.cc" + BoardsLink).get();
+            Document doc2 = Jsoup.connect("https://www.ptt.cc" + BoardsLink).cookie("over18","1").get();
             Elements Article = doc2.select("div.r-ent"); // board/article
             for (Element Articles : Article) {
                 String ArticleName = Articles.select(".title>a").text();
